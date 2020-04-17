@@ -5,6 +5,8 @@
 from scipy.special import jv
 from scipy.special import yv
 
+import numpy as np 
+
 
 def pybhmie(x, m):
     '''Mie scattering by BHMIE
@@ -19,11 +21,11 @@ def pybhmie(x, m):
     Qabs: Absorption efficiency (abs cross-section/ pi*radius**2)
     '''
     
-    mx = m*x;
+    mx = m*x
     
     #famous wiscombe series expansion stop criteria
     #each x has a different stopping value 
-    nmax = numpy.array(x + 4.*x**(1.0/3.0) + 2., dtype=int)
+    nmax = np.array(x + 4.*x**(1.0/3.0) + 2., dtype=int)
 
     #create j vector, indexing the expansion members containing nmax
     j = np.arange(1,nmax+1)
